@@ -16,6 +16,7 @@ steps:
         - latest
         - 26-slim
         - 26.1-slim
+        - 26.1.1-slim
 
   - name: 26-alpine-build-push
     image: plugins/docker
@@ -28,3 +29,4 @@ steps:
       tags:
         - 26-alpine
         - 26.1-alpine
+        - 26.1.1-alpine

@@ -1,7 +1,6 @@
 FROM debian:bullseye
 
-ENV OTP_VERSION="26.1" \
-    REBAR3_VERSION="3.22.1"
+ENV OTP_VERSION="26.1.1"
 
 LABEL org.opencontainers.image.version=$OTP_VERSION
 
@@ -9,7 +8,7 @@ LABEL org.opencontainers.image.version=$OTP_VERSION
 # sure our final image contains only what we've just built:
 RUN set -xe \
     && OTP_DOWNLOAD_URL="https://github.com/erlang/otp/archive/OTP-${OTP_VERSION}.tar.gz" \
-    && OTP_DOWNLOAD_SHA256="09864524516bd26be040ae9ee09d70ce38ded2bcec041bc36081313b5031dfe8" \
+    && OTP_DOWNLOAD_SHA256="a47203930e4b34a0e23bdf0a968127e5ec9d0e6c69ccf2e53be81cd2360eee2d" \
     && fetchDeps=' \
     curl \
     ca-certificates' \
@@ -46,17 +45,6 @@ RUN set -xe \
     && make -j$(nproc) \
     && make install ) \
     && find /usr/local -name examples | xargs rm -rf \
-    && REBAR3_DOWNLOAD_URL="https://github.com/erlang/rebar3/archive/${REBAR3_VERSION}.tar.gz" \
-    && REBAR3_DOWNLOAD_SHA256="2855b5784300865d2e43cb7a135cb2bba144cf15214c619065b918afc8cc6eb9" \
-    && mkdir -p /usr/src/rebar3-src \
-    && curl -fSL -o rebar3-src.tar.gz "$REBAR3_DOWNLOAD_URL" \
-    && echo "$REBAR3_DOWNLOAD_SHA256 rebar3-src.tar.gz" | sha256sum -c - \
-    && tar -xzf rebar3-src.tar.gz -C /usr/src/rebar3-src --strip-components=1 \
-    && rm rebar3-src.tar.gz \
-    && cd /usr/src/rebar3-src \
-    && HOME=$PWD ./bootstrap \
-    && install -v ./rebar3 /usr/local/bin/ \
-    && rm -rf /usr/src/rebar3-src \
     && apt-get purge -y --auto-remove $buildDeps $fetchDeps \
     && rm -rf $ERL_TOP /var/lib/apt/lists/*
 
