@@ -2,13 +2,13 @@ FROM ghcr.io/void-linux/void-glibc-busybox:20231003R1
 
 COPY cleanup.sh /usr/bin/void-cleanup
 
-ENV OTP_VERSION="26.1.2"
+ENV OTP_VERSION="26.2"
 
 LABEL org.opencontainers.image.version=$OTP_VERSION
 
 RUN set -xe \
     && OTP_DOWNLOAD_URL="https://github.com/erlang/otp/archive/OTP-${OTP_VERSION}.tar.gz" \
-    && OTP_DOWNLOAD_SHA256="56042d53b30863d4e720ebf463d777f0502f8c986957fc3a9e63dae870bbafe0" \
+    && OTP_DOWNLOAD_SHA256="25675a40f9953f39440046b5e325cf992b29323b038d147f3533435a2be547e6" \
     && fetchDeps=' \
     curl' \
     && xbps-install -Suy \
@@ -46,7 +46,7 @@ RUN set -xe \
     && find /usr/local -name src | xargs -r find | xargs rmdir -vp || true \
     && scanelf --nobanner -E ET_EXEC -BF '%F' --recursive /usr/local | xargs -r strip --strip-all \
     && scanelf --nobanner -E ET_DYN -BF '%F' --recursive /usr/local | xargs -r strip --strip-unneeded \
-    && xbps-remove -ROoy $buildDeps $fetchDeps \
+    && xbps-remove -Ry $buildDeps $fetchDeps \
     # Install runtime dependencies in the back door to avoid being removed by association.
     && xbps-install -y $runtimeDeps \ 
     && rm -rf otp-src.tar.gz $ERL_TOP \
