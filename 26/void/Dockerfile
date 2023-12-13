@@ -2,7 +2,14 @@ FROM ghcr.io/void-linux/void-glibc-busybox:20231003R1
 
 COPY cleanup.sh /usr/bin/void-cleanup
 
-ENV OTP_VERSION="26.2"
+ENV OTP_VERSION="26.2" \
+    # Declare runtime dependencies. \
+    RUNTIME_DEPS=' \
+    libstdc++ \
+    libssl3 \
+    lksctp-tools \
+    ncurses-libs \
+    '
 
 LABEL org.opencontainers.image.version=$OTP_VERSION
 
@@ -11,14 +18,10 @@ RUN set -xe \
     && OTP_DOWNLOAD_SHA256="25675a40f9953f39440046b5e325cf992b29323b038d147f3533435a2be547e6" \
     && fetchDeps=' \
     curl' \
-    && xbps-install -Suy \
-    && xbps-install -y $fetchDeps \
+    && xbps-install -Sy \
+    && xbps-install -Ay $fetchDeps \
     && curl -fSL -o otp-src.tar.gz "$OTP_DOWNLOAD_URL" \
     && echo "$OTP_DOWNLOAD_SHA256  otp-src.tar.gz" | sha256sum -c - \
-    && runtimeDeps=' \
-    libssl3 \
-    lksctp-tools \
-    ' \
     && buildDeps=' \
     autoconf \
     dpkg \
@@ -30,7 +33,7 @@ RUN set -xe \
     pax-utils \
     binutils \
     ' \
-    && xbps-install -y $buildDeps \
+    && xbps-install -Ay $buildDeps \
     && export ERL_TOP="/usr/src/otp_src_${OTP_VERSION%%@*}" \
     && mkdir -vp $ERL_TOP \
     && tar -xzf otp-src.tar.gz -C $ERL_TOP --strip-components=1 \
@@ -40,15 +43,15 @@ RUN set -xe \
     && ./configure --build="$gnuArch" \
     && make -j$(getconf _NPROCESSORS_ONLN) \
     && make install ) \
-    # Clean up
+    # Clean up \
     && find /usr/local -regex '/usr/local/lib/erlang/\(lib/\|erts-\).*/\(man\|doc\|obj\|c_src\|emacs\|info\|examples\)' | xargs rm -rf \
     && find /usr/local -name src | xargs -r find | grep -v '\.hrl$' | xargs rm -v || true \
     && find /usr/local -name src | xargs -r find | xargs rmdir -vp || true \
     && scanelf --nobanner -E ET_EXEC -BF '%F' --recursive /usr/local | xargs -r strip --strip-all \
     && scanelf --nobanner -E ET_DYN -BF '%F' --recursive /usr/local | xargs -r strip --strip-unneeded \
-    && xbps-remove -Ry $buildDeps $fetchDeps \
-    # Install runtime dependencies in the back door to avoid being removed by association.
-    && xbps-install -y $runtimeDeps \ 
+    && xbps-remove -Roy $buildDeps $fetchDeps \
+    # Install runtime dependencies (must be done after cleaning build dependencies). \
+    && xbps-install -y $RUNTIME_DEPS \ 
     && rm -rf otp-src.tar.gz $ERL_TOP \
     && void-cleanup
 
