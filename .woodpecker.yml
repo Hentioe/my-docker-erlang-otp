@@ -1,41 +1,41 @@
 steps:
-  26-slim-build-push:
-    image: woodpeckerci/plugin-docker-buildx
-    settings:
-      repo: hentioe/erlang
-      username:
-        from_secret: docker_username
-      password:
-        from_secret: docker_password
-      dockerfile: 26/slim/Dockerfile
-      platforms: linux/amd64,linux/arm64/v8
-      tags:
-        - latest
-        - 26-slim
-        - 26.2-slim
-        - 26.2.1-slim
-    when:
-      branch: main
-      event: push
+  # 26-slim-build-push:
+  #   image: woodpeckerci/plugin-docker-buildx
+  #   settings:
+  #     repo: hentioe/erlang
+  #     username:
+  #       from_secret: docker_username
+  #     password:
+  #       from_secret: docker_password
+  #     dockerfile: 26/slim/Dockerfile
+  #     platforms: linux/amd64,linux/arm64/v8
+  #     tags:
+  #       - latest
+  #       - 26-slim
+  #       - 26.2-slim
+  #       - 26.2.1-slim
+  #   when:
+  #     branch: main
+  #     event: push
 
-  # TODO: 基于 alpine:3.19 构建镜像。
-  26-alpine-build-push:
-    image: woodpeckerci/plugin-docker-buildx
-    settings:
-      repo: hentioe/erlang
-      username:
-        from_secret: docker_username
-      password:
-        from_secret: docker_password
-      dockerfile: 26/alpine/Dockerfile
-      platforms: linux/amd64,linux/arm64/v8
-      tags:
-        - 26-alpine
-        - 26.2-alpine
-        - 26.2.1-alpine
-    when:
-      branch: main
-      event: push
+  # # TODO: 基于 alpine:3.19 构建镜像。
+  # 26-alpine-build-push:
+  #   image: woodpeckerci/plugin-docker-buildx
+  #   settings:
+  #     repo: hentioe/erlang
+  #     username:
+  #       from_secret: docker_username
+  #     password:
+  #       from_secret: docker_password
+  #     dockerfile: 26/alpine/Dockerfile
+  #     platforms: linux/amd64,linux/arm64/v8
+  #     tags:
+  #       - 26-alpine
+  #       - 26.2-alpine
+  #       - 26.2.1-alpine
+  #   when:
+  #     branch: main
+  #     event: push
 
   26-void-build-push:
     image: woodpeckerci/plugin-docker-buildx

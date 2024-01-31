@@ -1,9 +1,9 @@
-FROM ghcr.io/void-linux/void-glibc-busybox:20231202R1
+FROM ghcr.io/void-linux/void-glibc-busybox:20231230R1
 
 COPY cleanup.sh /usr/bin/void-cleanup
 
 ENV OTP_VERSION="26.2.1" \
-    # Declare runtime dependencies. \
+    # Declare runtime dependencies.
     RUNTIME_DEPS=' \
     libstdc++ \
     libssl3 \
@@ -43,14 +43,14 @@ RUN set -xe \
     && ./configure --build="$gnuArch" \
     && make -j$(getconf _NPROCESSORS_ONLN) \
     && make install ) \
-    # Clean up \
+    # Clean up
     && find /usr/local -regex '/usr/local/lib/erlang/\(lib/\|erts-\).*/\(man\|doc\|obj\|c_src\|emacs\|info\|examples\)' | xargs rm -rf \
     && find /usr/local -name src | xargs -r find | grep -v '\.hrl$' | xargs rm -v || true \
     && find /usr/local -name src | xargs -r find | xargs rmdir -vp || true \
     && scanelf --nobanner -E ET_EXEC -BF '%F' --recursive /usr/local | xargs -r strip --strip-all \
     && scanelf --nobanner -E ET_DYN -BF '%F' --recursive /usr/local | xargs -r strip --strip-unneeded \
     && xbps-remove -Roy $buildDeps $fetchDeps \
-    # Install runtime dependencies (must be done after cleaning build dependencies). \
+    # Install runtime dependencies (must be done after cleaning build dependencies)
     && xbps-install -y $RUNTIME_DEPS \ 
     && rm -rf otp-src.tar.gz $ERL_TOP \
     && void-cleanup
