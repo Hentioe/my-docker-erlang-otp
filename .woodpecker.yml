@@ -13,7 +13,7 @@ steps:
         - latest
         - 26-slim
         - 26.2-slim
-        - 26.2.3-slim
+        - 26.2.4-slim
     when:
       branch: main
       event: push
@@ -31,7 +31,7 @@ steps:
       tags:
         - 26-alpine
         - 26.2-alpine
-        - 26.2.3-alpine
+        - 26.2.4-alpine
     when:
       branch: main
       event: push
@@ -50,7 +50,7 @@ steps:
       tags:
         - 26-void
         - 26.2-void
-        - 26.2.3-void
+        - 26.2.4-void
     when:
       branch: main
       event: push
