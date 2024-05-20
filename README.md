@@ -11,5 +11,8 @@ Erlang images maintained by Hentioe, which is the basis for [`my-docker-elixir`]
 | `hentioe/erlang:26-void`   | `ghcr.io/void-linux/void-glibc-busybox:20240303R1` |
 | `hentioe/erlang:26-alpine` | `alpine:3.19`                                      |
 | `hentioe/erlang:26-debian` | `debian:bookworm`                                  |
+| `hentioe/erlang:27-void`   | `ghcr.io/void-linux/void-glibc-busybox:20240303R1` |
+| `hentioe/erlang:27-alpine` | `alpine:3.19`                                      |
+| `hentioe/erlang:27-debian` | `debian:bookworm`                                  |
 
 Note: These images do not contain Rebar3.
