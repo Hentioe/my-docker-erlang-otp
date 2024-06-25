@@ -1,8 +1,8 @@
-FROM ghcr.io/void-linux/void-glibc-busybox:20240303R1
+FROM ghcr.io/void-linux/void-glibc-busybox:20240526R1
 
 COPY cleanup.sh /usr/bin/void-cleanup
 
-ENV OTP_VERSION="26.2.5" \
+ENV OTP_VERSION="26.2.5.1" \
     # Declare runtime dependencies.
     RUNTIME_DEPS=' \
     libstdc++ \
@@ -15,7 +15,7 @@ LABEL org.opencontainers.image.version=$OTP_VERSION
 
 RUN set -xe \
     && OTP_DOWNLOAD_URL="https://github.com/erlang/otp/archive/OTP-${OTP_VERSION}.tar.gz" \
-    && OTP_DOWNLOAD_SHA256="d34b409cb5968ae47dd5a0c4f85b925d5601898d90788bbb08d514964a3a141d" \
+    && OTP_DOWNLOAD_SHA256="13c301588de6f0b29f390b012ee80a7051b7b080c77676801cb44fd833dbf3cd" \
     && fetchDeps=' \
     curl' \
 	&& xbps-install -Sy \

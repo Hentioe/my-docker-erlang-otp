@@ -1,61 +1,9 @@
+when:
+  - branch: [main]
+    event: push
+
 steps:
-  # 26-slim-build-push:
-  #   image: woodpeckerci/plugin-docker-buildx
-  #   settings:
-  #     repo: hentioe/erlang
-  #     username:
-  #       from_secret: docker_username
-  #     password:
-  #       from_secret: docker_password
-  #     dockerfile: 26/slim/Dockerfile
-  #     platforms: linux/amd64,linux/arm64/v8
-  #     tags:
-  #       - latest
-  #       - 26-slim
-  #       - 26.2-slim
-  #       - 26.2.5-slim
-  #   when:
-  #     branch: main
-  #     event: push
-
-  # 26-alpine-build-push:
-  #   image: woodpeckerci/plugin-docker-buildx
-  #   settings:
-  #     repo: hentioe/erlang
-  #     username:
-  #       from_secret: docker_username
-  #     password:
-  #       from_secret: docker_password
-  #     dockerfile: 26/alpine/Dockerfile
-  #     platforms: linux/amd64,linux/arm64/v8
-  #     tags:
-  #       - 26-alpine
-  #       - 26.2-alpine
-  #       - 26.2.5-alpine
-  #   when:
-  #     branch: main
-  #     event: push
-
-  # 26-void-build-push:
-  #   image: woodpeckerci/plugin-docker-buildx
-  #   settings:
-  #     repo: hentioe/erlang
-  #     username:
-  #       from_secret: docker_username
-  #     password:
-  #       from_secret: docker_password
-  #     dockerfile: 26/void/Dockerfile
-  #     context: 26/void/
-  #     platforms: linux/amd64,linux/arm64/v8
-  #     tags:
-  #       - 26-void
-  #       - 26.2-void
-  #       - 26.2.5-void
-  #   when:
-  #     branch: main
-  #     event: push
-
-  27-slim-build-push:
+  26-slim-build-push:
     image: woodpeckerci/plugin-docker-buildx
     settings:
       repo: hentioe/erlang
@@ -63,17 +11,15 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
-      dockerfile: 27/slim/Dockerfile
+      dockerfile: 26/slim/Dockerfile
       platforms: linux/amd64,linux/arm64/v8
       tags:
         - latest
-        - 27-slim
-        - 27.0-slim
-    when:
-      branch: main
-      event: push
+        - 26-slim
+        - 26.2-slim
+        - 26.2.5.1-slim
 
-  27-alpine-build-push:
+  26-alpine-build-push:
     image: woodpeckerci/plugin-docker-buildx
     settings:
       repo: hentioe/erlang
@@ -81,16 +27,14 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
-      dockerfile: 27/alpine/Dockerfile
+      dockerfile: 26/alpine/Dockerfile
       platforms: linux/amd64,linux/arm64/v8
       tags:
-        - 27-alpine
-        - 27.0-alpine
-    when:
-      branch: main
-      event: push
+        - 26-alpine
+        - 26.2-alpine
+        - 26.2.5.1-alpine
 
-  27-void-build-push:
+  26-void-build-push:
     image: woodpeckerci/plugin-docker-buildx
     settings:
       repo: hentioe/erlang
@@ -98,12 +42,54 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
-      dockerfile: 27/void/Dockerfile
-      context: 27/void/
+      dockerfile: 26/void/Dockerfile
+      context: 26/void/
       platforms: linux/amd64,linux/arm64/v8
       tags:
-        - 27-void
-        - 27.0-void
-    when:
-      branch: main
-      event: push
+        - 26-void
+        - 26.2-void
+        - 26.2.5.1-void
+
+  # 27-slim-build-push:
+  #   image: woodpeckerci/plugin-docker-buildx
+  #   settings:
+  #     repo: hentioe/erlang
+  #     username:
+  #       from_secret: docker_username
+  #     password:
+  #       from_secret: docker_password
+  #     dockerfile: 27/slim/Dockerfile
+  #     platforms: linux/amd64,linux/arm64/v8
+  #     tags:
+  #       - latest
+  #       - 27-slim
+  #       - 27.0-slim
+
+  # 27-alpine-build-push:
+  #   image: woodpeckerci/plugin-docker-buildx
+  #   settings:
+  #     repo: hentioe/erlang
+  #     username:
+  #       from_secret: docker_username
+  #     password:
+  #       from_secret: docker_password
+  #     dockerfile: 27/alpine/Dockerfile
+  #     platforms: linux/amd64,linux/arm64/v8
+  #     tags:
+  #       - 27-alpine
+  #       - 27.0-alpine
+
+  # 27-void-build-push:
+  #   image: woodpeckerci/plugin-docker-buildx
+  #   settings:
+  #     repo: hentioe/erlang
+  #     username:
+  #       from_secret: docker_username
+  #     password:
+  #       from_secret: docker_password
+  #     dockerfile: 27/void/Dockerfile
+  #     context: 27/void/
+  #     platforms: linux/amd64,linux/arm64/v8
+  #     tags:
+  #       - 27-void
+  #       - 27.0-void
