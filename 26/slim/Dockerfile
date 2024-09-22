@@ -1,6 +1,6 @@
 FROM debian:bookworm
 
-ENV OTP_VERSION="26.2.5.2"
+ENV OTP_VERSION="26.2.5.3"
 
 LABEL org.opencontainers.image.version=$OTP_VERSION
 
@@ -8,7 +8,7 @@ LABEL org.opencontainers.image.version=$OTP_VERSION
 # sure our final image contains only what we've just built:
 RUN set -xe \
     && OTP_DOWNLOAD_URL="https://github.com/erlang/otp/archive/OTP-${OTP_VERSION}.tar.gz" \
-    && OTP_DOWNLOAD_SHA256="8e537e2d984770796cc7f0c7c079a9e5fbc67b8c368e0dcd9aa2ceaeb2844da2" \
+    && OTP_DOWNLOAD_SHA256="bca880053ee7ee1d46c93584257b83985922b6152327de67d9c0be87d9fd99f8" \
     && fetchDeps=' \
     curl \
     ca-certificates' \

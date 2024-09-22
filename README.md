@@ -2,9 +2,9 @@
 
 [![status-badge](https://ci.hentioe.dev/api/badges/10/status.svg)](https://ci.hentioe.dev/repos/10)
 
-Erlang images maintained by Hentioe, also the base of [`my-docker-elixir`](https://github.com/Hentioe/my-docker-elixir).
+The Erlang images maintained by Hentioe mainly provide the basis for the [Elixir](https://github.com/Hentioe/my-docker-elixir) images.
 
-## Versions
+## Basics
 
 The base images are Void Linux, Alpine Linux, and Debian, and the versions are as follows:
 
@@ -16,3 +16,7 @@ The base images are Void Linux, Alpine Linux, and Debian, and the versions are a
 | `hentioe/erlang:27-void`   | `ghcr.io/void-linux/void-glibc-busybox:20240526R1` |
 | `hentioe/erlang:27-alpine` | `alpine:3.20`                                      |
 | `hentioe/erlang:27-debian` | `debian:bookworm`                                  |
+
+## Difference
+
+Unlike the unorganized Erlang images provided by Docker, these do not include [Rebar3](https://github.com/erlang/rebar3).
