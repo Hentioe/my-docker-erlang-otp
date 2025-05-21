@@ -3,7 +3,7 @@ when:
     event: push
 
 steps:
-  27-slim-build-push:
+  28-slim-build-push:
     image: reg.hentioe.dev/library/plugin-docker-buildx
     privileged: true
     pull: true
@@ -13,15 +13,14 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
-      dockerfile: 27/slim/Dockerfile
+      dockerfile: 28/slim/Dockerfile
       platforms: linux/amd64,linux/arm64/v8
       tags:
         - latest
-        - 27-slim
-        - 27.3-slim
-        - 27.3.3-slim
+        - 28-slim
+        - 28.0-slim
 
-  27-alpine-build-push:
+  28-alpine-build-push:
     image: reg.hentioe.dev/library/plugin-docker-buildx
     privileged: true
     pull: true
@@ -31,14 +30,13 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
-      dockerfile: 27/alpine/Dockerfile
+      dockerfile: 28/alpine/Dockerfile
       platforms: linux/amd64,linux/arm64/v8
       tags:
-        - 27-alpine
-        - 27.3-alpine
-        - 27.3.3-alpine
+        - 28-alpine
+        - 28.0-alpine
 
-  27-nojit-alpine-build-push:
+  28-nojit-alpine-build-push:
     image: reg.hentioe.dev/library/plugin-docker-buildx
     privileged: true
     pull: true
@@ -48,14 +46,13 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
-      dockerfile: 27/nojit-alpine/Dockerfile
+      dockerfile: 28/nojit-alpine/Dockerfile
       platforms: linux/amd64,linux/arm64/v8
       tags:
-        - 27-nojit-alpine
-        - 27.3-nojit-alpine
-        - 27.3.3-nojit-alpine
+        - 28-nojit-alpine
+        - 28.0-nojit-alpine
 
-  27-void-build-push:
+  28-void-build-push:
     image: reg.hentioe.dev/library/plugin-docker-buildx
     privileged: true
     pull: true
@@ -65,13 +62,81 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
-      dockerfile: 27/void/Dockerfile
-      context: 27/void/
+      dockerfile: 28/void/Dockerfile
+      context: 28/void/
       platforms: linux/amd64,linux/arm64/v8
       tags:
-        - 27-void
-        - 27.3-void
-        - 27.3.3-void
+        - 28-void
+        - 28.0-void
+
+  # 27-slim-build-push:
+  #   image: reg.hentioe.dev/library/plugin-docker-buildx
+  #   privileged: true
+  #   pull: true
+  #   settings:
+  #     repo: hentioe/erlang
+  #     username:
+  #       from_secret: docker_username
+  #     password:
+  #       from_secret: docker_password
+  #     dockerfile: 27/slim/Dockerfile
+  #     platforms: linux/amd64,linux/arm64/v8
+  #     tags:
+  #       - 27-slim
+  #       - 27.3-slim
+  #       - 27.3.3-slim
+
+  # 27-alpine-build-push:
+  #   image: reg.hentioe.dev/library/plugin-docker-buildx
+  #   privileged: true
+  #   pull: true
+  #   settings:
+  #     repo: hentioe/erlang
+  #     username:
+  #       from_secret: docker_username
+  #     password:
+  #       from_secret: docker_password
+  #     dockerfile: 27/alpine/Dockerfile
+  #     platforms: linux/amd64,linux/arm64/v8
+  #     tags:
+  #       - 27-alpine
+  #       - 27.3-alpine
+  #       - 27.3.3-alpine
+
+  # 27-nojit-alpine-build-push:
+  #   image: reg.hentioe.dev/library/plugin-docker-buildx
+  #   privileged: true
+  #   pull: true
+  #   settings:
+  #     repo: hentioe/erlang
+  #     username:
+  #       from_secret: docker_username
+  #     password:
+  #       from_secret: docker_password
+  #     dockerfile: 27/nojit-alpine/Dockerfile
+  #     platforms: linux/amd64,linux/arm64/v8
+  #     tags:
+  #       - 27-nojit-alpine
+  #       - 27.3-nojit-alpine
+  #       - 27.3.3-nojit-alpine
+
+  # 27-void-build-push:
+  #   image: reg.hentioe.dev/library/plugin-docker-buildx
+  #   privileged: true
+  #   pull: true
+  #   settings:
+  #     repo: hentioe/erlang
+  #     username:
+  #       from_secret: docker_username
+  #     password:
+  #       from_secret: docker_password
+  #     dockerfile: 27/void/Dockerfile
+  #     context: 27/void/
+  #     platforms: linux/amd64,linux/arm64/v8
+  #     tags:
+  #       - 27-void
+  #       - 27.3-void
+  #       - 27.3.3-void
 
   # 26-slim-build-push:
   #   image: reg.hentioe.dev/library/plugin-docker-buildx

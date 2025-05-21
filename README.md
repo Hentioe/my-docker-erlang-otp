@@ -16,6 +16,9 @@ The base images are Void Linux, Alpine Linux, and Debian, and the versions are a
 | `hentioe/erlang:27-void`   | `ghcr.io/void-linux/void-glibc-busybox:20250401R1` |
 | `hentioe/erlang:27-alpine` | `alpine:3.21`                                      |
 | `hentioe/erlang:27-debian` | `debian:bookworm`                                  |
+| `hentioe/erlang:28-void`   | `ghcr.io/void-linux/void-glibc-busybox:20250501r1` |
+| `hentioe/erlang:28-alpine` | `alpine:3.21`                                      |
+| `hentioe/erlang:28-debian` | `debian:bookworm`                                  |
 
 ## Difference
 
