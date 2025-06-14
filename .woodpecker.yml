@@ -69,123 +69,71 @@ steps:
         - 28-void
         - 28.0-void
 
-  # 27-slim-build-push:
-  #   image: reg.hentioe.dev/library/plugin-docker-buildx
-  #   privileged: true
-  #   pull: true
-  #   settings:
-  #     repo: hentioe/erlang
-  #     username:
-  #       from_secret: docker_username
-  #     password:
-  #       from_secret: docker_password
-  #     dockerfile: 27/slim/Dockerfile
-  #     platforms: linux/amd64,linux/arm64/v8
-  #     tags:
-  #       - 27-slim
-  #       - 27.3-slim
-  #       - 27.3.3-slim
+  27-slim-build-push:
+    image: reg.hentioe.dev/library/plugin-docker-buildx
+    privileged: true
+    pull: true
+    settings:
+      repo: hentioe/erlang
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      dockerfile: 27/slim/Dockerfile
+      platforms: linux/amd64,linux/arm64/v8
+      tags:
+        - 27-slim
+        - 27.3-slim
+        - 27.3.4-slim
 
-  # 27-alpine-build-push:
-  #   image: reg.hentioe.dev/library/plugin-docker-buildx
-  #   privileged: true
-  #   pull: true
-  #   settings:
-  #     repo: hentioe/erlang
-  #     username:
-  #       from_secret: docker_username
-  #     password:
-  #       from_secret: docker_password
-  #     dockerfile: 27/alpine/Dockerfile
-  #     platforms: linux/amd64,linux/arm64/v8
-  #     tags:
-  #       - 27-alpine
-  #       - 27.3-alpine
-  #       - 27.3.3-alpine
+  27-alpine-build-push:
+    image: reg.hentioe.dev/library/plugin-docker-buildx
+    privileged: true
+    pull: true
+    settings:
+      repo: hentioe/erlang
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      dockerfile: 27/alpine/Dockerfile
+      platforms: linux/amd64,linux/arm64/v8
+      tags:
+        - 27-alpine
+        - 27.3-alpine
+        - 27.3.4-alpine
 
-  # 27-nojit-alpine-build-push:
-  #   image: reg.hentioe.dev/library/plugin-docker-buildx
-  #   privileged: true
-  #   pull: true
-  #   settings:
-  #     repo: hentioe/erlang
-  #     username:
-  #       from_secret: docker_username
-  #     password:
-  #       from_secret: docker_password
-  #     dockerfile: 27/nojit-alpine/Dockerfile
-  #     platforms: linux/amd64,linux/arm64/v8
-  #     tags:
-  #       - 27-nojit-alpine
-  #       - 27.3-nojit-alpine
-  #       - 27.3.3-nojit-alpine
+  27-nojit-alpine-build-push:
+    image: reg.hentioe.dev/library/plugin-docker-buildx
+    privileged: true
+    pull: true
+    settings:
+      repo: hentioe/erlang
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      dockerfile: 27/nojit-alpine/Dockerfile
+      platforms: linux/amd64,linux/arm64/v8
+      tags:
+        - 27-nojit-alpine
+        - 27.3-nojit-alpine
+        - 27.3.4-nojit-alpine
 
-  # 27-void-build-push:
-  #   image: reg.hentioe.dev/library/plugin-docker-buildx
-  #   privileged: true
-  #   pull: true
-  #   settings:
-  #     repo: hentioe/erlang
-  #     username:
-  #       from_secret: docker_username
-  #     password:
-  #       from_secret: docker_password
-  #     dockerfile: 27/void/Dockerfile
-  #     context: 27/void/
-  #     platforms: linux/amd64,linux/arm64/v8
-  #     tags:
-  #       - 27-void
-  #       - 27.3-void
-  #       - 27.3.3-void
-
-  # 26-slim-build-push:
-  #   image: reg.hentioe.dev/library/plugin-docker-buildx
-  #   privileged: true
-  #   pull: true
-  #   settings:
-  #     repo: hentioe/erlang
-  #     username:
-  #       from_secret: docker_username
-  #     password:
-  #       from_secret: docker_password
-  #     dockerfile: 26/slim/Dockerfile
-  #     platforms: linux/amd64,linux/arm64/v8
-  #     tags:
-  #       - 26-slim
-  #       - 26.2-slim
-  #       - 26.2.5.6-slim
-
-  # 26-alpine-build-push:
-  #   image: reg.hentioe.dev/library/plugin-docker-buildx
-  #   privileged: true
-  #   pull: true
-  #   settings:
-  #     repo: hentioe/erlang
-  #     username:
-  #       from_secret: docker_username
-  #     password:
-  #       from_secret: docker_password
-  #     dockerfile: 26/alpine/Dockerfile
-  #     platforms: linux/amd64,linux/arm64/v8
-  #     tags:
-  #       - 26-alpine
-  #       - 26.2-alpine
-  #       - 26.2.5.6-alpine
-
-  # 26-void-build-push:
-  #   image: reg.hentioe.dev/library/plugin-docker-buildx
-  #   privileged: true
-  #   pull: true
-  #   settings:
-  #     repo: hentioe/erlang
-  #     username:
-  #       from_secret: docker_username
-  #     password:
-  #       from_secret: docker_password
-  #     dockerfile: 26/void/Dockerfile
-  #     context: 26/void/
-  #     platforms: linux/amd64,linux/arm64/v8
-  #     tags:
-  #       - 26-void
-  #       - 26.2-void
-  #       - 26.2.5.6-void
+  27-void-build-push:
+    image: reg.hentioe.dev/library/plugin-docker-buildx
+    privileged: true
+    pull: true
+    settings:
+      repo: hentioe/erlang
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      dockerfile: 27/void/Dockerfile
+      context: 27/void/
+      platforms: linux/amd64,linux/arm64/v8
+      tags:
+        - 27-void
+        - 27.3-void
+        - 27.3.4-void
