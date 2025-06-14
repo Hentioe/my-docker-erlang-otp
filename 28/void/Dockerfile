@@ -1,4 +1,4 @@
-FROM ghcr.io/void-linux/void-glibc-busybox:20250501r1
+FROM ghcr.io/void-linux/void-glibc-busybox:20250601R1
 
 COPY cleanup.sh /usr/bin/void-cleanup
 
