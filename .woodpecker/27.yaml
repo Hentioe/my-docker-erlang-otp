@@ -3,59 +3,59 @@ when:
     event: push
 
 steps:
-  27-slim-build-push:
-    image: reg.hentioe.dev/library/plugin-docker-buildx
-    privileged: true
-    pull: true
-    settings:
-      repo: hentioe/erlang
-      username:
-        from_secret: docker_username
-      password:
-        from_secret: docker_password
-      dockerfile: 27/slim/Dockerfile
-      platforms: linux/amd64,linux/arm64/v8
-      tags:
-        - 27-slim
-        - 27.3-slim
-        - 27.3.4-slim
-        - 27.3.4.1-slim
+  # 27-slim-build-push:
+  #   image: reg.hentioe.dev/library/plugin-docker-buildx
+  #   privileged: true
+  #   pull: true
+  #   settings:
+  #     repo: hentioe/erlang
+  #     username:
+  #       from_secret: docker_username
+  #     password:
+  #       from_secret: docker_password
+  #     dockerfile: 27/slim/Dockerfile
+  #     platforms: linux/amd64,linux/arm64/v8
+  #     tags:
+  #       - 27-slim
+  #       - 27.3-slim
+  #       - 27.3.4-slim
+  #       - 27.3.4.1-slim
 
-  27-alpine-build-push:
-    image: reg.hentioe.dev/library/plugin-docker-buildx
-    privileged: true
-    pull: true
-    settings:
-      repo: hentioe/erlang
-      username:
-        from_secret: docker_username
-      password:
-        from_secret: docker_password
-      dockerfile: 27/alpine/Dockerfile
-      platforms: linux/amd64,linux/arm64/v8
-      tags:
-        - 27-alpine
-        - 27.3-alpine
-        - 27.3.4-alpine
-        - 27.3.4.1-alpine
+  # 27-alpine-build-push:
+  #   image: reg.hentioe.dev/library/plugin-docker-buildx
+  #   privileged: true
+  #   pull: true
+  #   settings:
+  #     repo: hentioe/erlang
+  #     username:
+  #       from_secret: docker_username
+  #     password:
+  #       from_secret: docker_password
+  #     dockerfile: 27/alpine/Dockerfile
+  #     platforms: linux/amd64,linux/arm64/v8
+  #     tags:
+  #       - 27-alpine
+  #       - 27.3-alpine
+  #       - 27.3.4-alpine
+  #       - 27.3.4.1-alpine
 
-  27-nojit-alpine-build-push:
-    image: reg.hentioe.dev/library/plugin-docker-buildx
-    privileged: true
-    pull: true
-    settings:
-      repo: hentioe/erlang
-      username:
-        from_secret: docker_username
-      password:
-        from_secret: docker_password
-      dockerfile: 27/nojit-alpine/Dockerfile
-      platforms: linux/amd64,linux/arm64/v8
-      tags:
-        - 27-nojit-alpine
-        - 27.3-nojit-alpine
-        - 27.3.4-nojit-alpine
-        - 27.3.4.1-nojit-alpine
+  # 27-nojit-alpine-build-push:
+  #   image: reg.hentioe.dev/library/plugin-docker-buildx
+  #   privileged: true
+  #   pull: true
+  #   settings:
+  #     repo: hentioe/erlang
+  #     username:
+  #       from_secret: docker_username
+  #     password:
+  #       from_secret: docker_password
+  #     dockerfile: 27/nojit-alpine/Dockerfile
+  #     platforms: linux/amd64,linux/arm64/v8
+  #     tags:
+  #       - 27-nojit-alpine
+  #       - 27.3-nojit-alpine
+  #       - 27.3.4-nojit-alpine
+  #       - 27.3.4.1-nojit-alpine
 
   27-void-build-push:
     image: reg.hentioe.dev/library/plugin-docker-buildx
