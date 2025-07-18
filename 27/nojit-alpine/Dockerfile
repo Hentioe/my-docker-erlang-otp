@@ -1,12 +1,12 @@
 FROM alpine:3.22
 
-ENV OTP_VERSION="27.3.4.1"
+ENV OTP_VERSION="27.3.4.2"
 
 LABEL org.opencontainers.image.version=$OTP_VERSION
 
 RUN set -xe \
     && OTP_DOWNLOAD_URL="https://github.com/erlang/otp/archive/OTP-${OTP_VERSION}.tar.gz" \
-    && OTP_DOWNLOAD_SHA256="fe6e1dcbd1d3113767e0bcae2ef980317284544158f4a270a9266f7a320ad1c4" \
+    && OTP_DOWNLOAD_SHA256="19ea757260634adb333889c5bade52fd43cd011d5e3612711df51461cea1fa51" \
     && apk add --no-cache --virtual .fetch-deps \
     curl \
     ca-certificates \
