@@ -1,6 +1,8 @@
 when:
   - branch: [main]
     event: push
+    path:
+      include: ["27/**"]
 
 steps:
   27-slim-build-push:
