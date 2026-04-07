@@ -21,7 +21,7 @@ steps:
         - 27-slim
         - 27.3-slim
         - 27.3.4-slim
-        - 27.3.4.3-slim
+        - 27.3.4.10-slim
 
   27-alpine-build-push:
     image: reg.hentioe.dev/library/plugin-docker-buildx
@@ -39,7 +39,7 @@ steps:
         - 27-alpine
         - 27.3-alpine
         - 27.3.4-alpine
-        - 27.3.4.3-alpine
+        - 27.3.4.10-alpine
 
   27-nojit-alpine-build-push:
     image: reg.hentioe.dev/library/plugin-docker-buildx
@@ -57,7 +57,7 @@ steps:
         - 27-nojit-alpine
         - 27.3-nojit-alpine
         - 27.3.4-nojit-alpine
-        - 27.3.4.3-nojit-alpine
+        - 27.3.4.10-nojit-alpine
 
   27-void-build-push:
     image: reg.hentioe.dev/library/plugin-docker-buildx
@@ -76,4 +76,4 @@ steps:
         - 27-void
         - 27.3-void
         - 27.3.4-void
-        - 27.3.4.3-void
+        - 27.3.4.10-void
