@@ -11,7 +11,7 @@
 | 完整镜像名                 | 基础镜像                                           |
 | :------------------------- | :------------------------------------------------- |
 | `hentioe/erlang:28-void`   | `ghcr.io/void-linux/void-glibc-busybox:20260401R1` |
-| `hentioe/erlang:28-alpine` | `alpine:3.22`                                      |
+| `hentioe/erlang:28-alpine` | `alpine:3.23`                                      |
 | `hentioe/erlang:28-debian` | `debian:bookworm`                                  |
 | `hentioe/erlang:27-void`   | `ghcr.io/void-linux/void-glibc-busybox:20260401R1` |
 | `hentioe/erlang:27-alpine` | `alpine:3.22`                                      |
